@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrThriveForce - Elite Trading Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .logo-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #d4af37;
+            border-radius: 50%;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #a0a0a0;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0;
+            border-radius: 4px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #a0a0a0;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            padding: 0.4rem 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            background-color: rgba(212, 175, 55, 0.15);
+            color: #d4af37;
+        }
+
+        .cta-button {
+            padding: 0.65rem 1.8rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .cta-button:hover {
+            background-color: #e8c547;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.15;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.8px;
+            color: #ffffff;
+        }
+
+        .hero-content h1 .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-content > p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #a8a8a8;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .btn-primary {
+            padding: 0.9rem 2rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary:hover {
+            background-color: #e8c547;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-secondary {
+            padding: 0.9rem 2rem;
+            background-color: transparent;
+            color: #d4af37;
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d4af37;
+            background-color: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15);
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(0, 0, 0, 0.4) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.15) brightness(1.05);
+            transition: filter 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            filter: grayscale(90%) contrast(1.2) brightness(1.1);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .stat {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 1.2rem;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 600;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #808080;
+            font-weight: 500;
+        }
+
+        /* The Method Section */
+        .method {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.03);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .method-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .method-header {
+            margin-bottom: 4rem;
+        }
+
+        .method-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .method-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .method-title {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .method-title .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .method-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #a8a8a8;
+        }
+
+        .method-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 2px;
+        }
+
+        .method-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.1) brightness(1.05);
+            transition: all 0.3s ease;
+        }
+
+        .method-image:hover img {
+            filter: grayscale(50%) contrast(1.15) brightness(1.08);
+            transform: scale(1.02);
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .pillar {
+            border-top: 2px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+        }
+
+        .pillar-number {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .pillar h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .pillar p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #909090;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .timeline-header {
+            margin-bottom: 4rem;
+        }
+
+        .timeline-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            font-size: 48px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .timeline-title .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .timeline-vertical {
+            position: relative;
+            padding: 4rem 0;
+            max-width: 700px;
+        }
+
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, rgba(212, 175, 55, 0.5), transparent);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -7px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .timeline-year {
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-event h4 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .timeline-event p {
+            font-size: 14px;
+            color: #a0a0a0;
+            line-height: 1.7;
+        }
+
+        /* MVT Section */
+        .mvt {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.03);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .mvt-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mvt-header {
+            margin-bottom: 4rem;
+        }
+
+        .mvt-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+
+        .mvt-title .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .mvt-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mvt-box {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 2.5rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mvt-box:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .mvt-label {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .mvt-box h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .mvt-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #a0a0a0;
+        }
+
+        /* Quote */
+        .quote-section {
+            padding: 6rem 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quote-text {
+            font-size: 22px;
+            font-style: italic;
+            line-height: 1.8;
+            color: #d4af37;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .quote-author {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            font-weight: 600;
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.03);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .approach-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .approach-header {
+            margin-bottom: 4rem;
+        }
+
+        .approach-label {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .approach-title {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .approach-title .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .approach-description {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #a8a8a8;
+            max-width: 800px;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .phase {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 2.5rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .phase:hover {
+            border-color: rgba(212, 175, 55, 0.3);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .phase-number {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .phase h3 {
+            font-size: 26px;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .phase p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #a0a0a0;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .programs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 4rem;
+        }
+
+        .programs-title-group h2 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .programs-title-group .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            padding: 3rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+            background-color: rgba(212, 175, 55, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .program-duration {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .program-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+
+        .program-card p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #a0a0a0;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            font-size: 13px;
+            color: #a0a0a0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li::before {
+            content: '◆ ';
+            color: #d4af37;
+            margin-right: 0.5rem;
+            font-size: 8px;
+        }
+
+        .program-cta {
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #d4af37;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .program-cta:hover {
+            letter-spacing: 2px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 7rem 3rem;
+            text-align: center;
+            background-color: rgba(212, 175, 55, 0.03);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+
+        .final-cta h2 {
+            font-size: 52px;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .final-cta h2 .gold {
+            color: #d4af37;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .final-cta-button {
+            padding: 1rem 2.5rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .final-cta-button:hover {
+            background-color: #e8c547;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            color: #606060;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero, .method-main {
+                grid-template-columns: 1fr;
+            }
+
+            .method-grid, .phases-grid, .programs-grid, .mvt-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .final-cta h2 {
+                font-size: 32px;
+            }
+
+            .method-title, .approach-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="#" class="logo">
+                <div class="logo-dot"></div>
+                <div>MRTHRIVE</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#method" class="menu-text">METHOD</a></li>
+                <li><a href="#about" class="menu-text">ABOUT</a></li>
+                <li><a href="#programs" class="menu-text">PROGRAMS</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
+            <button class="cta-button" onclick="scrollToPrograms()">
+                <span class="en-text">REQUEST ENTRY</span>
+                <span class="nl-text hidden">VERZOEK ENTRY</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="en-text">TRADE THE</span>
+                <span class="nl-text hidden">TRADE THE</span>
+                <span class="gold en-text">TRADER,</span>
+                <span class="gold nl-text hidden">TRADER,</span>
+                <br>
+                <span class="en-text">NOT THE TICKER.</span>
+                <span class="nl-text hidden">NIET DE TICKER.</span>
+            </h1>
+            <p class="en-text">Master the psychology behind every position. This isn't a course—it's your transformation into a disciplined market operator. Learn from someone who walks the path.</p>
+            <p class="nl-text hidden">Beheers de psychologie achter elke positie. Dit is geen cursus—het is jouw transformatie naar een gedisciplineerde marktoperator. Leer van iemand die het pad loopt.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToPrograms()">
+                    <span class="en-text">REQUEST ENTRY</span>
+                    <span class="nl-text hidden">VERZOEK ENTRY</span>
+                </button>
+                <button class="btn-secondary" onclick="scrollToMethod()">
+                    <span class="en-text">EXPLORE METHOD</span>
+                    <span class="nl-text hidden">VERKEN METHODE</span>
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">2.5+</div>
+                    <div class="stat-label en-text">YEARS TRADING</div>
+                    <div class="stat-label nl-text hidden">JAREN TRADEN</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1:1</div>
+                    <div class="stat-label en-text">PERSONAL COACHING</div>
+                    <div class="stat-label nl-text hidden">PERSOONLIJKE COACHING</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">PROVEN</div>
+                    <div class="stat-label en-text">FRAMEWORK</div>
+                    <div class="stat-label nl-text hidden">BEWEZEN SYSTEEM</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/MrThriveForce.png" alt="Martin">
+        </div>
+    </section>
+
+    <!-- The Method -->
+    <section class="method" id="method">
+        <div class="method-container">
+            <div class="method-header">
+                <div class="method-label">THE METHOD</div>
+            </div>
+
+            <div class="method-main">
+                <div>
+                    <h2 class="method-title">
+                        <span class="en-text">Your edge is not<br>a strategy.</span>
+                        <span class="nl-text hidden">Je voordeel is geen<br>strategie.</span>
+                        <br>
+                        <span class="gold en-text">It's you.</span>
+                        <span class="gold nl-text hidden">Het ben jij.</span>
+                    </h2>
+                    <p class="method-description en-text">Every trader who blows an account knows what they should have done. The gap between knowing and doing is where fortunes are lost. This is performance psychology applied to trading.</p>
+                    <p class="method-description nl-text hidden">Elke trader die een rekening opblaast weet wat ze hadden moeten doen. Het gat tussen weten en doen is waar fortuinen verloren gaan. Dit is prestatiespsychologie toegepast op trading.</p>
+                </div>
+                <div class="method-image">
+                    <img src="images/Oog.png" alt="The Eye">
+                </div>
+            </div>
+
+            <div class="method-grid">
+                <div class="pillar">
+                    <div class="pillar-number">01</div>
+                    <h3 class="en-text">Cognitive Architecture</h3>
+                    <h3 class="nl-text hidden">Cognitieve Architectuur</h3>
+                    <p class="en-text">Rewire the neural pathways that sabotage your entries. Build the mental models that elite traders use to decode market noise.</p>
+                    <p class="nl-text hidden">Herhaal de neurale paden die je entries saboteren. Bouw de mentale modellen die elite traders gebruiken om marktlawaai te decoderen.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">02</div>
+                    <h3 class="en-text">Emotional Sovereignty</h3>
+                    <h3 class="nl-text hidden">Emotionele Soevereiniteit</h3>
+                    <p class="en-text">Master the fear-greed spectrum. Develop the internal compass that stays calibrated during big moves and silent markets alike.</p>
+                    <p class="nl-text hidden">Beheers het angst-hebzucht spectrum. Ontwikkel het interne kompas dat gekalibreerd blijft tijdens grote volatiliteit en stille markten.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">03</div>
+                    <h3 class="en-text">Execution Discipline</h3>
+                    <h3 class="nl-text hidden">Uitvoeringsdiscipline</h3>
+                    <p class="en-text">Transform knowledge into reflexive action. Close the gap between what you know and what you do when capital is on the line.</p>
+                    <p class="nl-text hidden">Zet kennis om in reflexieve actie. Sluit het gat tussen wat je weet en wat je doet wanneer kapitaal op het spel staat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline" id="about">
+        <div class="timeline-header">
+            <div class="timeline-label">THE JOURNEY</div>
+            <h2 class="timeline-title">I'm <span class="gold">Martin.</span></h2>
+        </div>
+
+        <div class="timeline-vertical">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2006</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">First Business</h4>
+                        <h4 class="nl-text hidden">Eerste Bedrijf</h4>
+                        <p class="en-text">Insurance in Tsjechie. The hunger for freedom was always there.</p>
+                        <p class="nl-text hidden">Verzekeringen in Tsjechie. De honger naar vrijheid was altijd daar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2009</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">Move to Belgium</h4>
+                        <h4 class="nl-text hidden">Verhuizing naar België</h4>
+                        <p class="en-text">Building businesses in Belgium. New market, new opportunities, same hunger for growth.</p>
+                        <p class="nl-text hidden">Bedrijven bouwen in België. Nieuwe markt, nieuwe kansen, dezelfde honger naar groei.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">Trading Discovery</h4>
+                        <h4 class="nl-text hidden">Trading Ontdekking</h4>
+                        <p class="en-text">Discovered forex trading. After struggling, I learned the hard truth: trading is 90% mental, 10% technical.</p>
+                        <p class="nl-text hidden">Ontdekte forex trading. Na te worstelen, leerde ik de harde waarheid: trading is 90% mentaal, 10% technisch.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">MrThriveForce Launch</h4>
+                        <h4 class="nl-text hidden">MrThriveForce Start</h4>
+                        <p class="en-text">Now coaching serious traders on the psychological and technical fronts. Walking the path, not selling it.</p>
+                        <p class="nl-text hidden">Nu coach ik serieuze traders op psychologisch en technisch vlak. Het pad lopend, niet verkoopend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Truth -->
+    <section class="mvt">
+        <div class="mvt-container">
+            <div class="mvt-header">
+                <h2 class="mvt-title">
+                    <span class="en-text">Built on three</span>
+                    <span class="nl-text hidden">Gebouwd op drie</span>
+                    <br>
+                    <span class="gold en-text">core principles.</span>
+                    <span class="gold nl-text hidden">kernprincipes.</span>
+                </h2>
+            </div>
+
+            <div class="mvt-boxes">
+                <div class="mvt-box">
+                    <div class="mvt-label">MISSION</div>
+                    <h3 class="en-text">Coach traders who seek freedom, wholeness, and the power to be present.</h3>
+                    <h3 class="nl-text hidden">Coach traders die vrijheid, volledigheid en de kracht om aanwezig te zijn zoeken.</h3>
+                </div>
+                <div class="mvt-box">
+                    <div class="mvt-label">VISION</div>
+                    <h3 class="en-text">Build a thriving coaching practice from absolute freedom, with my family beside me.</h3>
+                    <h3 class="nl-text hidden">Bouw een bloeiende coaching praktijk uit absolute vrijheid, met mijn gezin naast me.</h3>
+                </div>
+                <div class="mvt-box">
+                    <div class="mvt-label">TRUTH</div>
+                    <h3 class="en-text">I'm still walking the path. That's exactly why you should listen—no guru theater.</h3>
+                    <h3 class="nl-text hidden">Ik loop het pad nog steeds. Daarom moet je luisteren—geen guru toneel.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text en-text">"I share my struggle, my mistakes, my breakthroughs. Because that's what traders truly need."</div>
+        <div class="quote-text nl-text hidden">"Ik deel mijn strijd, mijn fouten, mijn doorbraken. Omdat dat wat traders echt nodig hebben."</div>
+        <div class="quote-author">— MARTIN</div>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach" id="approach">
+        <div class="approach-container">
+            <div class="approach-header">
+                <div class="approach-label">THE APPROACH</div>
+                <h2 class="approach-title">
+                    <span class="en-text">Four phases.</span>
+                    <span class="nl-text hidden">Vier fasen.</span>
+                    <br>
+                    <span class="gold en-text">One transformation.</span>
+                    <span class="gold nl-text hidden">Één transformatie.</span>
+                </h2>
+                <p class="approach-description en-text">You don't consume this—you live through it. Each phase builds on the last, moving you from awareness to identity-level change.</p>
+                <p class="approach-description nl-text hidden">Je consumeert dit niet—je leeft het door. Elke fase bouwt voort op de vorige, je van bewustzijn naar identiteitstransformatie bewegend.</p>
+            </div>
+
+            <div class="phases-grid">
+                <div class="phase">
+                    <div class="phase-number">01</div>
+                    <h3 class="en-text">Audit</h3>
+                    <p class="en-text">Honest assessment of where you are—your patterns, blind spots, and the gap between knowing and doing.</p>
+                    <p class="nl-text hidden">Eerlijke beoordeling van waar je bent—je patronen, blinde vlekken en het gat tussen weten en doen.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">02</div>
+                    <h3 class="en-text">Deconstruct</h3>
+                    <p class="en-text">Break down the beliefs, habits, and emotional reflexes that sabotage your execution. Tailored to your psychology.</p>
+                    <p class="nl-text hidden">Ontleed de overtuigingen, gewoonten en emotionele reflexen die je execution saboteren. Afgestemd op jouw psychologie.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">03</div>
+                    <h3 class="en-text">Rebuild</h3>
+                    <p class="en-text">Construct a new internal operating system rooted in identity, not emotion. You become a different trader.</p>
+                    <p class="nl-text hidden">Bouw een nieuw intern systeem gegrondvest in identiteit, niet emotie. Je wordt een ander soort trader.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">04</div>
+                    <h3 class="en-text">Execute</h3>
+                    <p class="en-text">Close the knowing-doing gap until disciplined execution becomes your default, not your exception.</p>
+                    <p class="nl-text hidden">Sluit het weten-doen gat tot gedisciplineerde uitvoering je standaard wordt, niet je uitzondering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="programs-header">
+            <div class="programs-title-group">
+                <h2>
+                    <span class="en-text">The Performance</span>
+                    <span class="nl-text hidden">De Performance</span>
+                    <br>
+                    <span class="gold en-text">Lab</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">FOUNDATION</span>
+                    <span class="nl-text hidden">FOUNDATION</span>
+                    <br>
+                    <span class="en-text">3 MONTHS</span>
+                    <span class="nl-text hidden">3 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Entry Protocol</h3>
+                <h3 class="nl-text hidden">The Entry Protocol</h3>
+                <p class="en-text">Three months of 1-on-1 coaching to audit your trading identity, identify psychological patterns breaking your edge, and build a disciplined foundation.</p>
+                <p class="nl-text hidden">Drie maanden 1-op-1 coaching om je handelsidentiteit te controleren, psychologische patronen te identificeren en een gedisciplineerd fundament op te bouwen.</p>
+                <ul class="program-features">
+                    <li class="en-text">Complete psychological audit</li>
+                    <li class="en-text">Calibrated journal framework</li>
+                    <li class="en-text">Risk psychology protocol</li>
+                    <li class="nl-text hidden">Volledige psychologische audit</li>
+                    <li class="nl-text hidden">Gekalibreerd journal framework</li>
+                    <li class="nl-text hidden">Risicompsychologie protocol</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">APPLY →</span>
+                    <span class="nl-text hidden">AANMELDEN →</span>
+                </a>
+            </div>
+
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">INTERMEDIATE</span>
+                    <span class="nl-text hidden">INTERMEDIATE</span>
+                    <br>
+                    <span class="en-text">6 MONTHS</span>
+                    <span class="nl-text hidden">6 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Sovereign Matrix</h3>
+                <h3 class="nl-text hidden">The Sovereign Matrix</h3>
+                <p class="en-text">Six months to develop reflexive discipline. Follow your system especially when it hurts. Begin the identity transformation from emotional trader to sovereign operator.</p>
+                <p class="nl-text hidden">Zes maanden om reflexieve discipline te ontwikkelen. Volg je systeem vooral als het pijn doet. Begin de identiteitstransformatie naar soevereine operator.</p>
+                <ul class="program-features">
+                    <li class="en-text">Full execution protocol</li>
+                    <li class="en-text">Loss recovery system</li>
+                    <li class="en-text">Session planning templates</li>
+                    <li class="nl-text hidden">Volledige executie protocol</li>
+                    <li class="nl-text hidden">Verlies hersteelsysteem</li>
+                    <li class="nl-text hidden">Sessie planningssjablonen</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">APPLY →</span>
+                    <span class="nl-text hidden">AANMELDEN →</span>
+                </a>
+            </div>
+
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">ELITE</span>
+                    <span class="nl-text hidden">ELITE</span>
+                    <br>
+                    <span class="en-text">12 MONTHS</span>
+                    <span class="nl-text hidden">12 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Sovereign Year</h3>
+                <h3 class="nl-text hidden">The Sovereign Year</h3>
+                <p class="en-text">Complete transformation. One year of intensive coaching to forge the identity of a trader who acts from conviction, not emotion.</p>
+                <p class="nl-text hidden">Volledige transformatie. Één jaar intensieve coaching om de identiteit van een trader te smeden die uit overtuiging handelt.</p>
+                <ul class="program-features">
+                    <li class="en-text">Sovereign decision-making model</li>
+                    <li class="en-text">Live session review capability</li>
+                    <li class="en-text">Full performance tracking system</li>
+                    <li class="nl-text hidden">Soeverein besluitvormingsmodel</li>
+                    <li class="nl-text hidden">Live sessie review mogelijkheid</li>
+                    <li class="nl-text hidden">Volledig prestatietrackingsysteem</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">APPLY →</span>
+                    <span class="nl-text hidden">AANMELDEN →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>
+            <span class="en-text">Start your</span>
+            <span class="nl-text hidden">Begin je</span>
+            <br>
+            <span class="gold en-text">evolution.</span>
+            <span class="gold nl-text hidden">evolutie.</span>
+        </h2>
+        <button class="final-cta-button" onclick="scrollToPrograms()">
+            <span class="en-text">REQUEST ENTRY</span>
+            <span class="nl-text hidden">VERZOEK ENTRY</span>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>MRTHRIVE FORCE</p>
+        <p>DISCIPLINE. INTEGRITY. EXCELLENCE.</p>
+        <p style="margin-top: 1rem;">© 2024 MRTHRIVE FORCE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('.en-text, .nl-text');
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            if (lang === 'en') {
+                elements.forEach(el => {
+                    if (el.classList.contains('en-text')) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                });
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === 'en') btn.classList.add('active');
+                });
+            } else {
+                elements.forEach(el => {
+                    if (el.classList.contains('nl-text')) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                });
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === 'nl') btn.classList.add('active');
+                });
+            }
+        }
+
+        function scrollToMethod() {
+            document.getElementById('method').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToPrograms() {
+            document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
