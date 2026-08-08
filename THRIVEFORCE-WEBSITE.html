@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MrThriveForce - Elite Trading Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 3rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            position: sticky;
+            top: 0;
+            background-color: rgba(10, 10, 10, 0.98);
+            z-index: 1000;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #d4af37;
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #d4af37;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #b0b0b0;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 0.5rem;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #b0b0b0;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .lang-btn.active {
+            color: #d4af37;
+        }
+
+        .cta-button {
+            padding: 0.75rem 1.5rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .cta-button:hover {
+            background-color: #e8c547;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            padding: 8rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            font-weight: normal;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content h1 .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn-primary:hover {
+            background-color: #e8c547;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: #ffffff;
+            text-decoration: none;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            font-family: Arial, sans-serif;
+        }
+
+        .btn-secondary:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        .hero-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(0, 0, 0, 0.5) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2) brightness(1.05);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .stat {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 1rem;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* The Method Section */
+        .method {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .method-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .method-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-bottom: 4rem;
+        }
+
+        .method-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .method-title {
+            font-size: 48px;
+            font-weight: normal;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+        }
+
+        .method-title .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .method-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .method-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+        }
+
+        .pillar {
+            border-top: 2px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+        }
+
+        .pillar-number {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h3 {
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .pillar p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .timeline-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 48px;
+            font-weight: normal;
+        }
+
+        .timeline-title .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .timeline-vertical {
+            position: relative;
+            padding: 4rem 0;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline-vertical::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-color: rgba(212, 175, 55, 0.2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+            padding-right: 3rem;
+            text-align: right;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+            margin-right: 0;
+            padding-left: 3rem;
+            text-align: left;
+            width: 45%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: #d4af37;
+            border-radius: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-year {
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event h4 {
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-event p {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* MVT Section */
+        .mvt {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .mvt-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .mvt-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .mvt-title {
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .mvt-title .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .mvt-boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .mvt-box {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .mvt-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .mvt-box h3 {
+            font-size: 20px;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .mvt-box p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        /* Quote */
+        .quote-section {
+            padding: 6rem 3rem;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .quote-text {
+            font-size: 24px;
+            font-style: italic;
+            line-height: 1.8;
+            color: #d4af37;
+            margin-bottom: 2rem;
+        }
+
+        .quote-author {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 6rem 3rem;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .approach-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .approach-header {
+            margin-bottom: 4rem;
+        }
+
+        .approach-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .approach-title {
+            font-size: 48px;
+            font-weight: normal;
+            margin-bottom: 2rem;
+        }
+
+        .approach-title .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .approach-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #b0b0b0;
+            max-width: 800px;
+        }
+
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .phase {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 2.5rem;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        .phase-number {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .phase h3 {
+            font-size: 28px;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+
+        .phase p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .programs-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .programs-title-group h2 {
+            font-size: 48px;
+            font-weight: normal;
+        }
+
+        .programs-title-group .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .programs-link {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .programs-link:hover {
+            letter-spacing: 3px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .program-card {
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 3rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        .program-card:hover {
+            border-color: #d4af37;
+        }
+
+        .program-duration {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .program-card h3 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+            margin-bottom: 1.5rem;
+        }
+
+        .program-features {
+            list-style: none;
+            font-size: 13px;
+            color: #999;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .program-features li::before {
+            content: '• ';
+            color: #d4af37;
+            margin-right: 0.5rem;
+        }
+
+        .program-cta {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #d4af37;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .program-cta:hover {
+            letter-spacing: 3px;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 8rem 3rem;
+            text-align: center;
+            background-color: rgba(212, 175, 55, 0.02);
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .final-cta h2 {
+            font-size: 56px;
+            font-weight: normal;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .final-cta h2 .gold {
+            color: #d4af37;
+            font-style: italic;
+        }
+
+        .final-cta-button {
+            padding: 1.2rem 3rem;
+            background-color: #d4af37;
+            color: #0a0a0a;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: none;
+            font-family: Arial, sans-serif;
+            display: inline-block;
+            margin-top: 2rem;
+        }
+
+        .final-cta-button:hover {
+            background-color: #e8c547;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+
+        /* Hidden class for language switching */
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero, .method-header {
+                grid-template-columns: 1fr;
+            }
+
+            .method-grid, .phases-grid, .programs-grid, .mvt-boxes {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .final-cta h2 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <a href="#" class="logo">
+                <div class="logo-dot"></div>
+                <div class="logo-text">MrThriveForce</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#method" class="menu-text">METHOD</a></li>
+                <li><a href="#about" class="menu-text">ABOUT</a></li>
+                <li><a href="#programs" class="menu-text">PROGRAMS</a></li>
+                <li><a href="#approach" class="menu-text">APPROACH</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" data-lang="nl" onclick="switchLanguage('nl')">NL</button>
+            </div>
+            <button class="cta-button" onclick="scrollToPrograms()">
+                <span class="en-text">REQUEST ENTRY</span>
+                <span class="nl-text hidden">VERZOEK ENTRY</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                <span class="en-text">TRADE THE</span>
+                <span class="nl-text hidden">TRADE THE</span>
+                <span class="gold en-text">trader,</span>
+                <span class="gold nl-text hidden">trader,</span>
+                <br>
+                <span class="en-text">NOT THE TICKER.</span>
+                <span class="nl-text hidden">NOT DE TICKER.</span>
+            </h1>
+            <p class="en-text">Master the psychology behind every position. This isn't a course—it's the metamorphosis of a trader into a disciplined market athlete. Learn from someone who's lived it.</p>
+            <p class="nl-text hidden">Beheers de psychologie achter elke positie. Dit is geen cursus—het is de metamorfose van een trader naar een gedisciplineerde marktatleet. Leer van iemand die het leeft.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="scrollToPrograms()">
+                    <span class="en-text">REQUEST ENTRY</span>
+                    <span class="nl-text hidden">VERZOEK ENTRY</span>
+                </button>
+                <button class="btn-secondary" onclick="scrollToMethod()">
+                    <span class="en-text">EXPLORE METHOD</span>
+                    <span class="nl-text hidden">VERKEN METHODE</span>
+                </button>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">2.5+</div>
+                    <div class="stat-label en-text">YEARS TRADING</div>
+                    <div class="stat-label nl-text hidden">JAAR TRADEN</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">1:1</div>
+                    <div class="stat-label en-text">PERSONAL MENTORING</div>
+                    <div class="stat-label nl-text hidden">PERSOONLIJKE BEGELEIDING</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">PROVEN</div>
+                    <div class="stat-label en-text">FRAMEWORK</div>
+                    <div class="stat-label nl-text hidden">RAAMWERK</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="images/MrThriveForce.png" alt="Martin">
+        </div>
+    </section>
+
+    <!-- The Method -->
+    <section class="method" id="method">
+        <div class="method-container">
+            <div class="method-header">
+                <div></div>
+                <div>
+                    <div class="method-label">THE METHOD</div>
+                    <h2 class="method-title">
+                        <span class="en-text">Your edge is not<br>a strategy.</span>
+                        <span class="nl-text hidden">Je voordeel is geen<br>strategie.</span>
+                        <br>
+                        <span class="gold en-text">It's you.</span>
+                        <span class="gold nl-text hidden">Het ben jij.</span>
+                    </h2>
+                    <p class="method-description en-text">Every trader who blows an account knows what they should have done. The gap between knowing and doing is where fortunes are lost — and where we work. This is performance psychology applied to the most demanding arena on earth.</p>
+                    <p class="method-description nl-text hidden">Elke trader die een rekening opblaast weet wat ze hadden moeten doen. Het gat tussen weten en doen is waar fortuinen verloren gaan — en waar we werken. Dit is prestatipsychologie toegepast op de meest eisende arena op aarde.</p>
+                </div>
+            </div>
+
+            <div class="method-grid">
+                <div class="pillar">
+                    <div class="pillar-number">01</div>
+                    <h3 class="en-text">Psychology</h3>
+                    <h3 class="nl-text hidden">Psychologie</h3>
+                    <p class="en-text">Rewire the neural pathways that sabotage your entries. Build the mental models that elite traders use to decode market noise.</p>
+                    <p class="nl-text hidden">Herhaal de neurale paden die je entries saboteren. Bouw de mentale modellen die elite traders gebruiken om marktlawaai te decoderen.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">02</div>
+                    <h3 class="en-text">Discipline</h3>
+                    <h3 class="nl-text hidden">Discipline</h3>
+                    <p class="en-text">Master emotional sovereignty. Develop the internal compass that stays calibrated during 500-pip moves and silent markets alike.</p>
+                    <p class="nl-text hidden">Beheers emotionele soevereiniteit. Ontwikkel het interne kompas dat gekalibreerd blijft tijdens 500-pip bewegingen en stille markten.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-number">03</div>
+                    <h3 class="en-text">Execution</h3>
+                    <h3 class="nl-text hidden">Uitvoering</h3>
+                    <p class="en-text">Transform knowledge into reflexive action. Close the gap between what you know and what you do when capital is on the line.</p>
+                    <p class="nl-text hidden">Zet kennis om in reflexieve actie. Sluit het gat tussen wat je weet en wat je doet wanneer kapitaal op het spel staat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="timeline" id="about">
+        <div class="timeline-header">
+            <div class="timeline-label">THE MAN BEHIND THE METHOD</div>
+            <h2 class="timeline-title">I'm <span class="gold">Martin</span>.</h2>
+        </div>
+
+        <div class="timeline-vertical">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2006</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">First Business</h4>
+                        <h4 class="nl-text hidden">Eerste Bedrijf</h4>
+                        <p class="en-text">Insurance in Česká Republika. The drive for more — for freedom — was always there.</p>
+                        <p class="nl-text hidden">Verzekeringen in Česká Republika. De drang naar meer — naar vrijheid — was altijd daar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2009</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">Move to Belgium</h4>
+                        <h4 class="nl-text hidden">Verhuizing naar België</h4>
+                        <p class="en-text">At 21, I left to build businesses in Belgium. New market, new opportunities, same hunger.</p>
+                        <p class="nl-text hidden">Op 21-jarige leeftijd vertrok ik om bedrijven in België op te bouwen. Nieuwe markt, nieuwe kansen, dezelfde honger.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">Forex & Nasdaq Discovery</h4>
+                        <h4 class="nl-text hidden">Forex & Nasdaq Ontdekking</h4>
+                        <p class="en-text">I discovered trading. Fell for the guru promise of quick riches first. After eighteen months I learned the truth: trading is 90% mental.</p>
+                        <p class="nl-text hidden">Ik ontdekte trading. Viel eerst voor de gurubelofte van snelle rijkdom. Na achttien maanden leerde ik de waarheid: trading is 90% mentaal.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">MrThriveForce Launch</h4>
+                        <h4 class="nl-text hidden">MrThriveForce Launch</h4>
+                        <p class="en-text">Built ICM Belgium into a thriving business while mastering the Archer framework. Now mentoring serious traders on the mental and technical fronts.</p>
+                        <p class="nl-text hidden">Bouwde ICM Belgium uit tot een bloeiend bedrijf terwijl ik het Archer-framework beheerste. Mentor nu serieuze traders op mentale en technische fronten.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">TODAY</div>
+                    <div class="timeline-event">
+                        <h4 class="en-text">Coach & Mentor</h4>
+                        <h4 class="nl-text hidden">Coach & Mentor</h4>
+                        <p class="en-text">I guide traders who seek not just profit, but wholeness. Freedom. The power to be present. No guru selling success — a person who is honest about the path.</p>
+                        <p class="nl-text hidden">Ik begeleid traders die niet alleen profit zoeken, maar volledigheid. Vrijheid. De kracht om aanwezig te zijn. Geen guru die succes verkoopt — iemand die eerlijk is over het pad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Truth -->
+    <section class="mvt">
+        <div class="mvt-container">
+            <div class="mvt-header">
+                <h2 class="mvt-title">
+                    <span class="en-text">Built on</span>
+                    <span class="nl-text hidden">Gebouwd op</span>
+                    <br>
+                    <span class="gold en-text">three pillars.</span>
+                    <span class="gold nl-text hidden">drie pijlers.</span>
+                </h2>
+            </div>
+
+            <div class="mvt-boxes">
+                <div class="mvt-box">
+                    <div class="mvt-label">MISSION</div>
+                    <h3 class="en-text">Coach traders who seek not just profit, but wholeness. Freedom. The power to be present.</h3>
+                    <h3 class="nl-text hidden">Coach traders die niet alleen profit zoeken, maar volledigheid. Vrijheid. De kracht om aanwezig te zijn.</h3>
+                </div>
+                <div class="mvt-box">
+                    <div class="mvt-label">VISION</div>
+                    <h3 class="en-text">Dubai. Coaching from absolute freedom, with my family beside me. Every day I build towards that.</h3>
+                    <h3 class="nl-text hidden">Dubai. Coaching vanuit absolute vrijheid, met mijn gezin naast me. Elke dag bouw ik daarnaar toe.</h3>
+                </div>
+                <div class="mvt-box">
+                    <div class="mvt-label">TRUTH</div>
+                    <h3 class="en-text">I'm not there yet. And that's exactly why you should listen — I walk the path, I don't sell it.</h3>
+                    <h3 class="nl-text hidden">Ik ben er nog niet. En daarom zou je juist moeten luisteren — ik loop het pad, ik verkoop het niet.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text en-text">"I share my own struggle, my own mistakes, my own breakthroughs. Because that's what people truly need. No guru selling success — a person who is honest about the path."</div>
+        <div class="quote-text nl-text hidden">"Ik deel mijn eigen strijd, mijn eigen fouten, mijn eigen doorbraken. Omdat dat is wat mensen echt nodig hebben. Geen guru die succes verkoopt — iemand die eerlijk is over het pad."</div>
+        <div class="quote-author">— MARTIN</div>
+    </section>
+
+    <!-- Approach -->
+    <section class="approach" id="approach">
+        <div class="approach-container">
+            <div class="approach-header">
+                <div class="approach-label">THE APPROACH</div>
+                <h2 class="approach-title">
+                    <span class="en-text">Four phases.</span>
+                    <span class="nl-text hidden">Vier fasen.</span>
+                    <br>
+                    <span class="gold en-text">One transformation.</span>
+                    <span class="gold nl-text hidden">Één transformatie.</span>
+                </h2>
+                <p class="approach-description en-text">This isn't a course you consume — it's a process you live through. Each phase builds on the last, taking you from awareness to identity-level change.</p>
+                <p class="approach-description nl-text hidden">Dit is geen cursus die je consumeert — het is een proces dat je doorleeft. Elke fase bouwt voort op de vorige, je van bewustzijn naar identiteitsniveau verandering brengt.</p>
+            </div>
+
+            <div class="phases-grid">
+                <div class="phase">
+                    <div class="phase-number">01</div>
+                    <h3 class="en-text">Audit</h3>
+                    <h3 class="nl-text hidden">Audit</h3>
+                    <p class="en-text">We start with an honest assessment of where you are — your patterns, your blind spots, the gap between what you know and what you actually do when capital is on the line.</p>
+                    <p class="nl-text hidden">We beginnen met een eerlijke beoordeling van waar je bent — je patronen, je blinde vlekken, het gat tussen wat je weet en wat je daadwerkelijk doet wanneer kapitaal op het spel staat.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">02</div>
+                    <h3 class="en-text">Deconstruct</h3>
+                    <h3 class="nl-text hidden">Deconstrueer</h3>
+                    <p class="en-text">Together we break down the beliefs, habits, and emotional reflexes that sabotage your execution. No generic advice — everything is tailored to your specific psychology.</p>
+                    <p class="nl-text hidden">Samen breken we de overtuigingen, gewoonten en emotionele reflexen af die je uitvoering saboteren. Geen generiek advies — alles is afgestemd op jouw specifieke psychologie.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">03</div>
+                    <h3 class="en-text">Rebuild</h3>
+                    <h3 class="nl-text hidden">Herbouw</h3>
+                    <p class="en-text">We construct a new internal operating system — one rooted in identity, not emotion. You don't just learn new techniques; you become a different kind of trader.</p>
+                    <p class="nl-text hidden">We bouwen een nieuw intern bedrijfssysteem — gegrondvest in identiteit, niet emotie. Je leert niet alleen nieuwe technieken; je wordt een ander soort trader.</p>
+                </div>
+                <div class="phase">
+                    <div class="phase-number">04</div>
+                    <h3 class="en-text">Execute</h3>
+                    <h3 class="nl-text hidden">Voer uit</h3>
+                    <p class="en-text">Through live sessions, journaling, and direct accountability, we close the knowing-doing gap until disciplined execution becomes your default — not your exception.</p>
+                    <p class="nl-text hidden">Via live sessies, journalering en directe verantwoording sluiten we het weten-doen gat tot gedisciplineerde uitvoering je standaard wordt — niet je uitzondering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="programs-header">
+            <div class="programs-title-group">
+                <h2>
+                    <span class="en-text">The Performance</span>
+                    <span class="nl-text hidden">The Performance</span>
+                    <br>
+                    <span class="gold en-text">Lab</span>
+                    <span class="gold nl-text hidden">Lab</span>
+                </h2>
+            </div>
+            <a href="#" class="programs-link en-text">VIEW ALL PROGRAMS →</a>
+            <a href="#" class="programs-link nl-text hidden">BEKIJK ALLE PROGRAMMA'S →</a>
+        </div>
+
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">FOUNDATION</span>
+                    <span class="nl-text hidden">FOUNDATION</span>
+                    <br>
+                    <span class="en-text">3 MONTHS</span>
+                    <span class="nl-text hidden">3 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Entry Protocol</h3>
+                <h3 class="nl-text hidden">The Entry Protocol</h3>
+                <p class="en-text">The entry point. Three months of focused 1-on-1 coaching to audit your current trading identity, identify the psychological patterns breaking your edge, and build the disciplined foundation of a real operator.</p>
+                <p class="nl-text hidden">Het ingangspunt. Drie maanden gerichte 1-op-1 coaching om je huidige handelsidentiteit te controleren, de psychologische patronen die je voordeel breken te identificeren en het gedisciplineerde fundament van een echte operator op te bouwen.</p>
+                <ul class="program-features">
+                    <li class="en-text">Complete psychological bias audit</li>
+                    <li class="en-text">Calibrated journal framework</li>
+                    <li class="en-text">Risk psychology protocol</li>
+                    <li class="nl-text hidden">Complete psychological bias audit</li>
+                    <li class="nl-text hidden">Calibrated journal framework</li>
+                    <li class="nl-text hidden">Risk psychology protocol</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">1-ON-1 APPLY →</span>
+                    <span class="nl-text hidden">1-OP-1 APPLY →</span>
+                </a>
+            </div>
+
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">INTERMEDIATE</span>
+                    <span class="nl-text hidden">INTERMEDIATE</span>
+                    <br>
+                    <span class="en-text">6 MONTHS</span>
+                    <span class="nl-text hidden">6 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Sovereign Matrix</h3>
+                <h3 class="nl-text hidden">The Sovereign Matrix</h3>
+                <p class="en-text">Bridge the gap between strategy and execution. Six months to develop the reflexive discipline to follow your system — especially when it hurts — and begin the identity-level transformation from emotional trader to sovereign operator.</p>
+                <p class="nl-text hidden">Overbrugg het gat tussen strategie en uitvoering. Zes maanden om de reflexieve discipline te ontwikkelen om je systeem te volgen — vooral als het pijn doet — en te beginnen met de identiteitstransformatie van emotionele trader naar soevereine operator.</p>
+                <ul class="program-features">
+                    <li class="en-text">Full execution protocol</li>
+                    <li class="en-text">Loss recovery system</li>
+                    <li class="en-text">Session planning templates</li>
+                    <li class="nl-text hidden">Full execution protocol</li>
+                    <li class="nl-text hidden">Loss recovery system</li>
+                    <li class="nl-text hidden">Session planning templates</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">1-ON-1 APPLY →</span>
+                    <span class="nl-text hidden">1-OP-1 APPLY →</span>
+                </a>
+            </div>
+
+            <div class="program-card">
+                <div class="program-duration">
+                    <span class="en-text">ELITE</span>
+                    <span class="nl-text hidden">ELITE</span>
+                    <br>
+                    <span class="en-text">12 MONTHS</span>
+                    <span class="nl-text hidden">12 MAANDEN</span>
+                </div>
+                <h3 class="en-text">The Sovereign Year</h3>
+                <h3 class="nl-text hidden">The Sovereign Year</h3>
+                <p class="en-text">Complete transformation. One full year of intensive coaching — twice weekly for the first three months to rebuild your foundation, then weekly for nine months to forge the identity of a trader who acts from conviction, not emotion.</p>
+                <p class="nl-text hidden">Volledige transformatie. Een volledig jaar intensieve coaching — twee keer per week voor de eerste drie maanden om je fundament opnieuw op te bouwen, vervolgens wekelijks voor negen maanden om de identiteit van een trader te smeden die uit overtuiging handelt, niet uit emotie.</p>
+                <ul class="program-features">
+                    <li class="en-text">Sovereign decision-making model</li>
+                    <li class="en-text">Live session review capability</li>
+                    <li class="en-text">Full performance tracking system</li>
+                    <li class="nl-text hidden">Sovereign decision-making model</li>
+                    <li class="nl-text hidden">Live session review capability</li>
+                    <li class="nl-text hidden">Full performance tracking system</li>
+                </ul>
+                <a href="#" class="program-cta">
+                    <span class="en-text">1-ON-1 APPLY →</span>
+                    <span class="nl-text hidden">1-OP-1 APPLY →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <h2>
+            <span class="en-text">Start your</span>
+            <span class="nl-text hidden">Begin je</span>
+            <br>
+            <span class="gold en-text">evolution.</span>
+            <span class="gold nl-text hidden">evolutie.</span>
+        </h2>
+        <button class="final-cta-button" onclick="scrollToPrograms()">
+            <span class="en-text">REQUEST ENTRY</span>
+            <span class="nl-text hidden">VERZOEK ENTRY</span>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>MRTHRIVE FORCE</p>
+        <p>DISCIPLINE. INTEGRITY. EXCELLENCE.</p>
+        <p style="margin-top: 1rem;">© 2024 MRTHRIVE FORCE. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('.en-text, .nl-text');
+            const buttons = document.querySelectorAll('.lang-btn');
+
+            if (lang === 'en') {
+                elements.forEach(el => {
+                    if (el.classList.contains('en-text')) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                });
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === 'en') btn.classList.add('active');
+                });
+            } else {
+                elements.forEach(el => {
+                    if (el.classList.contains('nl-text')) {
+                        el.classList.remove('hidden');
+                    } else {
+                        el.classList.add('hidden');
+                    }
+                });
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-lang') === 'nl') btn.classList.add('active');
+                });
+            }
+        }
+
+        function scrollToMethod() {
+            document.getElementById('method').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToPrograms() {
+            document.getElementById('programs').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
